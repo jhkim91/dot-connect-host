@@ -9,7 +9,7 @@ const ControlsContainer = styled.div`
   align-items: center;
 `;
 
-const Button = styled.button<{ $variant?: 'primary' | 'secondary' | 'warning' }>`
+const Button = styled.button<{ $variant?: 'primary' | 'secondary' | 'warning' | 'success' }>`
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -22,26 +22,34 @@ const Button = styled.button<{ $variant?: 'primary' | 'secondary' | 'warning' }>
     switch ($variant) {
       case 'primary':
         return `
-          background-color: #2196F3;
-          color: white;
+          background-color: #A2D2FF;
+          color: #333333;
           &:hover {
-            background-color: #1976D2;
+            background-color: #91c1ee;
           }
         `;
       case 'secondary':
         return `
-          background-color: #9E9E9E;
-          color: white;
+          background-color: #E2E2E2;
+          color: #333333;
           &:hover {
-            background-color: #757575;
+            background-color: #d1d1d1;
           }
         `;
       case 'warning':
         return `
-          background-color: #F44336;
-          color: white;
+          background-color: #FFB5B5;
+          color: #333333;
           &:hover {
-            background-color: #D32F2F;
+            background-color: #eea4a4;
+          }
+        `;
+      case 'success':
+        return `
+          background-color: #B5EAD7;
+          color: #333333;
+          &:hover {
+            background-color: #a4d9c6;
           }
         `;
       default:
@@ -101,7 +109,7 @@ const Controls: React.FC = () => {
       <Button $variant="warning" onClick={handleNewGame}>
         새 게임 🔄
       </Button>
-      <Button $variant="secondary" onClick={handleRetry}>
+      <Button $variant="success" onClick={handleRetry}>
         다시하기 🎮
       </Button>
       <HintCount>

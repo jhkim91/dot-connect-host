@@ -66,17 +66,17 @@ const Button = styled.button<{ $variant: 'primary' | 'secondary' }>`
   ${({ $variant }) => 
     $variant === 'primary'
       ? `
-        background-color: #2196F3;
-        color: white;
+        background-color: #A2D2FF;
+        color: #333333;
         &:hover {
-          background-color: #1976D2;
+          background-color: #91c1ee;
         }
       `
       : `
-        background-color: #9E9E9E;
-        color: white;
+        background-color: #E2E2E2;
+        color: #333333;
         &:hover {
-          background-color: #757575;
+          background-color: #d1d1d1;
         }
       `
   }
