@@ -100,8 +100,12 @@ const Board: React.FC = () => {
   const boardRef = useRef<HTMLDivElement>(null);
 
   const handleCellClick = useCallback((position: Point) => {
+    // 메시지가 표시 중이면 클릭 무시
+    if (state.message) {
+      return;
+    }
     dispatch({ type: 'VISIT_CELL', position });
-  }, [dispatch]);
+  }, [dispatch, state.message]);
 
   // DOM 요소의 중심점 계산
   const calculateCenterPoint = useCallback((element: HTMLDivElement): LinePoint => {
@@ -160,6 +164,7 @@ const Board: React.FC = () => {
                 }
               }}
               cell={cell}
+              disabled={!!state.message}
               onClick={() => handleCellClick({ x, y })}
             />
           ))}

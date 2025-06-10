@@ -21,18 +21,20 @@ const CellContainer = styled.div<{
   $cellType: CellType['type'];
   $visited: boolean;
   $isHint: boolean;
+  $disabled?: boolean;
 }>`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin: 5px;
-  cursor: pointer;
+  cursor: ${props => (props.$disabled || props.$cellType === 'trap' || props.$visited) ? 'not-allowed' : 'pointer'};
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 2;
+  opacity: ${props => props.$disabled ? '0.7' : '1'};
 
   ${({ $cellType, $visited }) => {
     switch ($cellType) {
@@ -85,7 +87,7 @@ const CellContainer = styled.div<{
 `;
 
 const Cell = React.memo(forwardRef<HTMLDivElement, CellProps>((props, ref) => {
-  const { cell, onClick } = props;
+  const { cell, onClick, disabled } = props;
   
   return (
     <CellContainer
@@ -93,6 +95,7 @@ const Cell = React.memo(forwardRef<HTMLDivElement, CellProps>((props, ref) => {
       $cellType={cell.type}
       $visited={cell.visited}
       $isHint={cell.isHint || false}
+      $disabled={disabled}
       onClick={onClick}
     />
   );
