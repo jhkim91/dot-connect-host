@@ -22,7 +22,6 @@ export type GameBoard = CellType[][];
 export interface CellProps {
   cell: CellType;
   onClick: () => void;
-  disabled?: boolean;
 }
 
 export type GameState = {

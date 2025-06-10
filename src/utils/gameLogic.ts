@@ -1,4 +1,4 @@
-import { CellType, Point, GameBoard, Direction } from '../types/game';
+import { Point, GameBoard, Direction } from '../types/game';
 
 const BOARD_SIZE = 6;
 const TRAP_COUNT = 2;

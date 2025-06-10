@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect } from 'react';
-import { GameState, GameAction, GameContextType, Point } from '../types/game';
+import { GameState, GameAction, GameContextType } from '../types/game';
 import { createBoard, checkReachability, findNextHint } from '../utils/gameLogic';
 
 const initialState: GameState = {
@@ -212,7 +212,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         position: startCell.position,
       });
     }
-  }, []);
+  }, [state.board, state.path.length, dispatch]);
 
   return (
     <GameContext.Provider value={{ state, dispatch }}>

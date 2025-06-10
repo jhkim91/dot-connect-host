@@ -101,16 +101,16 @@ const Controls: React.FC = () => {
   return (
     <ControlsContainer>
       <Button onClick={handleHint}>
-        힌트
+        힌트 💡
       </Button>
       <Button $variant="secondary" onClick={handleUndo}>
-        되돌리기
+        되돌리기 ↩️
       </Button>
       <Button $variant="warning" onClick={handleNewGame}>
-        새 게임
+        새 게임 🔄
       </Button>
       <Button $variant="success" onClick={handleRetry}>
-        다시하기
+        다시하기 🎮
       </Button>
       <HintCount>
         {state.hintCount}
